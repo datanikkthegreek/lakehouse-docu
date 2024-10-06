@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lakehouse.silver &mdash; lakehouse  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="lakehouse.datasources" href="lakehouse.datasources.html" />
+    <link rel="prev" title="lakehouse.bronze" href="lakehouse.bronze.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            lakehouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="lakehouse.html">lakehouse</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.etl.html">lakehouse.etl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.bronze.html">lakehouse.bronze</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">lakehouse.silver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.silver.Silver"><code class="docutils literal notranslate"><span class="pre">Silver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.Silver.filter_load"><code class="docutils literal notranslate"><span class="pre">Silver.filter_load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.Silver.load"><code class="docutils literal notranslate"><span class="pre">Silver.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.Silver.transform"><code class="docutils literal notranslate"><span class="pre">Silver.transform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.silver.SilverAppend"><code class="docutils literal notranslate"><span class="pre">SilverAppend</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.SilverAppend.write"><code class="docutils literal notranslate"><span class="pre">SilverAppend.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.silver.SilverMerge"><code class="docutils literal notranslate"><span class="pre">SilverMerge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.SilverMerge.get_delta_merge_builder"><code class="docutils literal notranslate"><span class="pre">SilverMerge.get_delta_merge_builder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.SilverMerge.write"><code class="docutils literal notranslate"><span class="pre">SilverMerge.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.silver.SilverOverwrite"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.SilverOverwrite.write"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.silver.SilverReplaceWhere"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.SilverReplaceWhere.get_replace_condition"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.get_replace_condition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.silver.SilverReplaceWhere.write"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.datasources.html">lakehouse.datasources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.utils.html">lakehouse.utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lakehouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lakehouse.html">lakehouse</a></li>
+      <li class="breadcrumb-item active">lakehouse.silver</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lakehouse.silver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-lakehouse.silver">
+<span id="lakehouse-silver"></span><h1>lakehouse.silver<a class="headerlink" href="#module-lakehouse.silver" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.silver.Silver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.silver.</span></span><span class="sig-name descname"><span class="pre">Silver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.silver.Silver" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL" title="lakehouse.etl.ETL"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETL</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.Silver.filter_load">
+<span class="sig-name descname"><span class="pre">filter_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#lakehouse.silver.Silver.filter_load" title="Link to this definition"></a></dt>
+<dd><p>Function to filter the loaded dataframe and making use of predicate pushdown.</p>
+<p>Filter rows and columns not needed here before applying any other transformations in transform()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>filtered DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.Silver.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#lakehouse.silver.Silver.load" title="Link to this definition"></a></dt>
+<dd><p>Function to load the data from the source table catalog.source_schema.table
+and filters the spark the loaded spark DataFrame based on filter_load()</p>
+<p>Can be overwritten if needed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table</strong> (<em>str</em>) – name of the table</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>loaded and filtered data as DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.Silver.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#lakehouse.silver.Silver.transform" title="Link to this definition"></a></dt>
+<dd><p>Function to transform the loaded dataframe. Can be overwritten. Returns the loaded sdf as default.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformed DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverAppend">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.silver.</span></span><span class="sig-name descname"><span class="pre">SilverAppend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.silver.SilverAppend" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lakehouse.silver.Silver" title="lakehouse.silver.Silver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Silver</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverAppend.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.silver.SilverAppend.write" title="Link to this definition"></a></dt>
+<dd><p>Appends the data on the targeting table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverMerge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.silver.</span></span><span class="sig-name descname"><span class="pre">SilverMerge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.silver.SilverMerge" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lakehouse.silver.Silver" title="lakehouse.silver.Silver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Silver</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverMerge.get_delta_merge_builder">
+<span class="sig-name descname"><span class="pre">get_delta_merge_builder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DeltaTable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DeltaMergeBuilder</span></span></span><a class="headerlink" href="#lakehouse.silver.SilverMerge.get_delta_merge_builder" title="Link to this definition"></a></dt>
+<dd><p>Abstract function to define a DeltaMergeBuilder to perform the merge in the write function.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">merge_condition</span> <span class="o">=</span> <span class="s2">&quot;target.primary_key = source.primary_key&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span> <span class="o">=</span> <span class="n">delta_table</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">sdf</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">),</span> <span class="n">merge_condition</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">whenMatchedUpdateAll</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">whenNotMatchedInsertAll</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="n">builder</span>
+</pre></div>
+</div>
+<p>More examples can be found here: <a class="reference external" href="https://docs.delta.io/latest/delta-update.html">https://docs.delta.io/latest/delta-update.html</a> and <a class="reference external" href="https://docs.delta.io/latest/api/python/spark/index.html">https://docs.delta.io/latest/api/python/spark/index.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame to be written</p></li>
+<li><p><strong>delta_table</strong> (<em>DeltaTable</em>) – target delta table to write to</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverMerge.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.silver.SilverMerge.write" title="Link to this definition"></a></dt>
+<dd><p>Merges data based on a defined delta_merge_builder in get_delta_merge_builder().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverOverwrite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.silver.</span></span><span class="sig-name descname"><span class="pre">SilverOverwrite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.silver.SilverOverwrite" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lakehouse.silver.Silver" title="lakehouse.silver.Silver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Silver</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverOverwrite.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.silver.SilverOverwrite.write" title="Link to this definition"></a></dt>
+<dd><p>Overwrites the data on the targeting table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverReplaceWhere">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.silver.</span></span><span class="sig-name descname"><span class="pre">SilverReplaceWhere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.silver.SilverReplaceWhere" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lakehouse.silver.Silver" title="lakehouse.silver.Silver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Silver</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverReplaceWhere.get_replace_condition">
+<span class="sig-name descname"><span class="pre">get_replace_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lakehouse.silver.SilverReplaceWhere.get_replace_condition" title="Link to this definition"></a></dt>
+<dd><p>Condition as SQL expression to overwrite specific data.</p>
+<p>Input data has to fullfill this condition</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="s2">&quot;sample_col &gt;= sample_value&quot;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.silver.SilverReplaceWhere.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.silver.SilverReplaceWhere.write" title="Link to this definition"></a></dt>
+<dd><p>Overwrite data based on a provided condition in get_replace_condition() using replaceWhere</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lakehouse.bronze.html" class="btn btn-neutral float-left" title="lakehouse.bronze" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lakehouse.datasources.html" class="btn btn-neutral float-right" title="lakehouse.datasources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Nikk the Greek (Nikolaos Servos).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

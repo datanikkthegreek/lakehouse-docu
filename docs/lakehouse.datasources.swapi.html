@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lakehouse.datasources.swapi &mdash; lakehouse  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="lakehouse.utils" href="lakehouse.utils.html" />
+    <link rel="prev" title="lakehouse.datasources" href="lakehouse.datasources.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            lakehouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="lakehouse.html">lakehouse</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.etl.html">lakehouse.etl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.bronze.html">lakehouse.bronze</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.silver.html">lakehouse.silver</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="lakehouse.datasources.html">lakehouse.datasources</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">lakehouse.datasources.swapi</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.datasources.swapi.SWAPIDataSource"><code class="docutils literal notranslate"><span class="pre">SWAPIDataSource</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.datasources.swapi.SWAPIDataSourceReader"><code class="docutils literal notranslate"><span class="pre">SWAPIDataSourceReader</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.utils.html">lakehouse.utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lakehouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lakehouse.html">lakehouse</a></li>
+          <li class="breadcrumb-item"><a href="lakehouse.datasources.html">lakehouse.datasources</a></li>
+      <li class="breadcrumb-item active">lakehouse.datasources.swapi</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lakehouse.datasources.swapi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-lakehouse.datasources.swapi">
+<span id="lakehouse-datasources-swapi"></span><h1>lakehouse.datasources.swapi<a class="headerlink" href="#module-lakehouse.datasources.swapi" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.datasources.swapi.SWAPIDataSource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.datasources.swapi.</span></span><span class="sig-name descname"><span class="pre">SWAPIDataSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.datasources.swapi.SWAPIDataSource" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataSource</span></code></p>
+<p>Implementing the SWAPI API as to <a class="reference external" href="https://swapi.dev/documentation">https://swapi.dev/documentation</a></p>
+<p>Name: <cite>SWAPI</cite></p>
+<p>Schema (depends on the called resource):</p>
+<blockquote>
+<div><p>“people”: ‘birth_year string, created string, edited string, eye_color string, films array&lt;string&gt;,
+gender string, hair_color string, height string, homeworld string, mass string, name string, skin_color string,
+species array&lt;string&gt;, starships array&lt;string&gt;, url string, vehicles array&lt;string&gt;’,</p>
+<p>“films”: ‘characters array&lt;string&gt;, created string, director string, edited string, episode_id bigint,
+opening_crawl string, planets array&lt;string&gt;, producer string, release_date string, species array&lt;string&gt;,
+starships array&lt;string&gt;, title string, url string, vehicles array&lt;string&gt;’,</p>
+<p>“starships”: ‘MGLT string, cargo_capacity string, consumables string, cost_in_credits string, created string,
+crew string, edited string, films array&lt;string&gt;, hyperdrive_rating string, length string, manufacturer string,
+max_atmosphering_speed string, model string, name string, passengers string, pilots array&lt;string&gt;, starship_class string, url string’,</p>
+<p>“vehicles”: ‘cargo_capacity string, consumables string, cost_in_credits string, created string, crew string,
+edited string, films array&lt;string&gt;, length string, manufacturer string, max_atmosphering_speed string, model string,
+name string, passengers string, pilots array&lt;string&gt;, url string, vehicle_class string’,</p>
+<p>“species”: ‘average_height string, average_lifespan string, classification string, created string, designation string,
+edited string, eye_colors string, films array&lt;string&gt;, hair_colors string, homeworld string, language string, name string,
+people array&lt;string&gt;, skin_colors string, url string’,</p>
+<p>“planets”: ‘climate string, created string, diameter string, edited string, films array&lt;string&gt;, gravity string, name string,
+orbital_period string, population string, residents array&lt;string&gt;, rotation_period string, surface_water string, terrain string, url string’</p>
+</div></blockquote>
+<p>Examples</p>
+<p>Register the data source.
+&gt;&gt;&gt; from pyspark_datasources import SWAPIDataSource
+&gt;&gt;&gt; spark.dataSource.register(SWAPIDataSource)</p>
+<p>Load data from the availble resources “people”, “films”, “starships”, “vehicles”, “species”, “planets”
+&gt;&gt;&gt; spark.read.format(“SWAPI”).load(“planets”).show()</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>climate</p></td>
+<td><p>created</p></td>
+<td><p>diameter</p></td>
+<td><p>edited</p></td>
+<td><p>films</p></td>
+<td><p>gravity</p></td>
+<td><p>name</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><blockquote>
+<div><p>arid</p>
+</div></blockquote>
+<p>…</p>
+</td>
+<td><p>2014-12-09T13:50:…
+…</p></td>
+<td><blockquote>
+<div><p>10465</p>
+</div></blockquote>
+<p>…</p>
+</td>
+<td><p>2014-12-20T20:58:…
+…</p></td>
+<td><dl class="simple">
+<dt>[<a class="reference external" href="https://swapi.de">https://swapi.de</a>…</dt><dd><p>…</p>
+</dd>
+</dl>
+</td>
+<td><p>1 standard
+…</p></td>
+<td><p>Tatooine
+…</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.datasources.swapi.SWAPIDataSource.name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.datasources.swapi.SWAPIDataSource.name" title="Link to this definition"></a></dt>
+<dd><p>Returns a string represents the format name of this data source.</p>
+<p>By default, it is the class name of the data source. It can be overridden to
+provide a customized short name for the data source.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="s2">&quot;my_data_source&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.datasources.swapi.SWAPIDataSource.reader">
+<span class="sig-name descname"><span class="pre">reader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.datasources.swapi.SWAPIDataSource.reader" title="Link to this definition"></a></dt>
+<dd><p>Returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">DataSourceReader</span></code> instance for reading data.</p>
+<p>The implementation is required for readable data sources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>schema</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">StructType</span></code>) – The schema of the data to be read.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>reader</strong> – A reader instance for this data source.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSourceReader</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.datasources.swapi.SWAPIDataSource.schema">
+<span class="sig-name descname"><span class="pre">schema</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.datasources.swapi.SWAPIDataSource.schema" title="Link to this definition"></a></dt>
+<dd><p>Returns the schema of the data source.</p>
+<p>It can refer any field initialized in the <code class="xref py py-meth docutils literal notranslate"><span class="pre">DataSource.__init__()</span></code> method
+to infer the data source’s schema when users do not explicitly specify it.
+This method is invoked once when calling <code class="docutils literal notranslate"><span class="pre">spark.read.format(...).load()</span></code>
+to get the schema for a data source read operation. If this method is not
+implemented, and a user does not provide a schema when reading the data source,
+an exception will be thrown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>schema</strong> – The schema of this data source or a DDL string represents the schema</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">StructType</span></code> or str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Returns a DDL string:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">return</span> <span class="s2">&quot;a INT, b STRING&quot;</span>
+</pre></div>
+</div>
+<p>Returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">StructType</span></code>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">schema</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="k">return</span> <span class="n">StructType</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.datasources.swapi.SWAPIDataSourceReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.datasources.swapi.</span></span><span class="sig-name descname"><span class="pre">SWAPIDataSourceReader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.datasources.swapi.SWAPIDataSourceReader" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DataSourceReader</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.datasources.swapi.SWAPIDataSourceReader.partitions">
+<span class="sig-name descname"><span class="pre">partitions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.datasources.swapi.SWAPIDataSourceReader.partitions" title="Link to this definition"></a></dt>
+<dd><p>Returns an iterator of partitions for this data source.</p>
+<p>Partitions are used to split data reading operations into parallel tasks.
+If this method returns N partitions, the query planner will create N tasks.
+Each task will execute <code class="xref py py-meth docutils literal notranslate"><span class="pre">DataSourceReader.read()</span></code> in parallel, using the respective
+partition value to read the data.</p>
+<p>This method is called once during query planning. By default, it returns a
+single partition with the value <code class="docutils literal notranslate"><span class="pre">None</span></code>. Subclasses can override this method
+to return multiple partitions.</p>
+<p>It’s recommended to override this method for better performance when reading
+large datasets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A sequence of partitions for this data source. Each partition value
+must be an instance of <cite>InputPartition</cite> or a subclass of it.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>sequence of <code class="xref py py-class docutils literal notranslate"><span class="pre">InputPartition</span></code>s</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>All partition values must be picklable objects.</p>
+<p class="rubric">Examples</p>
+<p>Returns a list of integers:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">partitions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">[</span><span class="n">InputPartition</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">InputPartition</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">InputPartition</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Returns a list of string:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">partitions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">[</span><span class="n">InputPartition</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">),</span> <span class="n">InputPartition</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">),</span> <span class="n">InputPartition</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Returns a list of ranges:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">RangeInputPartition</span><span class="p">(</span><span class="n">InputPartition</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+<span class="gp">... </span>       <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+<span class="gp">... </span>       <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">partitions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">[</span><span class="n">RangeInputPartition</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">RangeInputPartition</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.datasources.swapi.SWAPIDataSourceReader.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.datasources.swapi.SWAPIDataSourceReader.read" title="Link to this definition"></a></dt>
+<dd><p>Generates data for a given partition and returns an iterator of tuples or rows.</p>
+<p>This method is invoked once per partition to read the data. Implementing
+this method is required for readable data sources. You can initialize any
+non-serializable resources required for reading data from the data source
+within this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>partition</strong> (<em>object</em>) – The partition to read. It must be one of the partition values returned by
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">DataSourceReader.partitions()</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An iterator of tuples or rows. Each tuple or row will be converted to a row
+in the final DataFrame.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>iterator of tuples or <code class="xref py py-class docutils literal notranslate"><span class="pre">Row</span></code>s</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Yields a list of tuples:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition</span><span class="p">:</span> <span class="n">InputPartition</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="p">(</span><span class="n">partition</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="p">(</span><span class="n">partition</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Yields a list of rows:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">partition</span><span class="p">:</span> <span class="n">InputPartition</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="n">Row</span><span class="p">(</span><span class="n">partition</span><span class="o">=</span><span class="n">partition</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">yield</span> <span class="n">Row</span><span class="p">(</span><span class="n">partition</span><span class="o">=</span><span class="n">partition</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lakehouse.datasources.html" class="btn btn-neutral float-left" title="lakehouse.datasources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lakehouse.utils.html" class="btn btn-neutral float-right" title="lakehouse.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Nikk the Greek (Nikolaos Servos).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

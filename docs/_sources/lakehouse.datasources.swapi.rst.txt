@@ -1,0 +1,7 @@
+lakehouse.datasources.swapi
+============================
+
+.. automodule:: lakehouse.datasources.swapi
+    :members:
+    :undoc-members:
+    :show-inheritance:

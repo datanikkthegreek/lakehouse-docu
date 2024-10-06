@@ -1,0 +1,7 @@
+lakehouse.silver
+=======================
+
+.. automodule:: lakehouse.silver
+    :members:
+    :undoc-members:
+    :show-inheritance:

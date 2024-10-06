@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>lakehouse.bronze &mdash; lakehouse  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="lakehouse.silver" href="lakehouse.silver.html" />
+    <link rel="prev" title="lakehouse.etl" href="lakehouse.etl.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            lakehouse
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="lakehouse.html">lakehouse</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.etl.html">lakehouse.etl</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">lakehouse.bronze</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.Bronze"><code class="docutils literal notranslate"><span class="pre">Bronze</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.Bronze.transform"><code class="docutils literal notranslate"><span class="pre">Bronze.transform()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend"><code class="docutils literal notranslate"><span class="pre">BronzeAppend</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend.write"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge"><code class="docutils literal notranslate"><span class="pre">BronzeMerge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge.get_delta_merge_builder"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.get_delta_merge_builder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge.write"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite.write"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere.get_replace_condition"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.get_replace_condition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere.write"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.write()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.silver.html">lakehouse.silver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.datasources.html">lakehouse.datasources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.utils.html">lakehouse.utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">lakehouse</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="lakehouse.html">lakehouse</a></li>
+      <li class="breadcrumb-item active">lakehouse.bronze</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/lakehouse.bronze.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-lakehouse.bronze">
+<span id="lakehouse-bronze"></span><h1>lakehouse.bronze<a class="headerlink" href="#module-lakehouse.bronze" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.bronze.Bronze">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">Bronze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.Bronze" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL" title="lakehouse.etl.ETL"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETL</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.bronze.Bronze.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#lakehouse.bronze.Bronze.transform" title="Link to this definition"></a></dt>
+<dd><p>Function to transform the loaded dataframe. Can be overwritten. Returns the loaded sdf as default.</p>
+<p>In Bronze it’s recommended to keep transformations on a minimum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformed DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeAppend">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">BronzeAppend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.BronzeAppend" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lakehouse.bronze.Bronze" title="lakehouse.bronze.Bronze"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bronze</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeAppend.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.bronze.BronzeAppend.write" title="Link to this definition"></a></dt>
+<dd><p>Appends the data on the targeting table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">BronzeMerge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.BronzeMerge" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lakehouse.bronze.Bronze" title="lakehouse.bronze.Bronze"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bronze</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge.get_delta_merge_builder">
+<span class="sig-name descname"><span class="pre">get_delta_merge_builder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DeltaTable</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DeltaMergeBuilder</span></span></span><a class="headerlink" href="#lakehouse.bronze.BronzeMerge.get_delta_merge_builder" title="Link to this definition"></a></dt>
+<dd><p>Abstract function to define a DeltaMergeBuilder to perform the merge in the write function.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">merge_condition</span> <span class="o">=</span> <span class="s2">&quot;target.primary_key = source.primary_key&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span> <span class="o">=</span> <span class="n">delta_table</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">sdf</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">),</span> <span class="n">merge_condition</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">whenMatchedUpdateAll</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">whenNotMatchedInsertAll</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="n">builder</span>
+</pre></div>
+</div>
+<p>More examples can be found here: <a class="reference external" href="https://docs.delta.io/latest/delta-update.html">https://docs.delta.io/latest/delta-update.html</a> and <a class="reference external" href="https://docs.delta.io/latest/api/python/spark/index.html">https://docs.delta.io/latest/api/python/spark/index.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame to be written</p></li>
+<li><p><strong>delta_table</strong> (<em>DeltaTable</em>) – target delta table to write to</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.bronze.BronzeMerge.write" title="Link to this definition"></a></dt>
+<dd><p>Merges data based on a defined delta_merge_builder in get_delta_merge_builder().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeOverwrite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">BronzeOverwrite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.BronzeOverwrite" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lakehouse.bronze.Bronze" title="lakehouse.bronze.Bronze"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bronze</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeOverwrite.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.bronze.BronzeOverwrite.write" title="Link to this definition"></a></dt>
+<dd><p>Overwrites the data on the targeting table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">BronzeReplaceWhere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lakehouse.bronze.Bronze" title="lakehouse.bronze.Bronze"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bronze</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere.get_replace_condition">
+<span class="sig-name descname"><span class="pre">get_replace_condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere.get_replace_condition" title="Link to this definition"></a></dt>
+<dd><p>Condition as SQL expression to overwrite specific data.</p>
+<p>Input data has to fullfill this condition</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">return</span> <span class="s2">&quot;sample_col &gt;= sample_value&quot;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere.write" title="Link to this definition"></a></dt>
+<dd><p>Overwrite data based on a provided condition in get_replace_condition() using replaceWhere</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
+<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lakehouse.etl.html" class="btn btn-neutral float-left" title="lakehouse.etl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lakehouse.silver.html" class="btn btn-neutral float-right" title="lakehouse.silver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Nikk the Greek (Nikolaos Servos).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
