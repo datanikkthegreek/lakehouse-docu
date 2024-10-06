@@ -28,4 +28,4 @@ bronze_instance = StarWarsBronze(spark, **options)
 bronze_instance.execute_one("people")
 ```
 
-See samples here: 
+See samples here: https://github.com/datanikkthegreek/lakehouse-docu/tree/main/samples
