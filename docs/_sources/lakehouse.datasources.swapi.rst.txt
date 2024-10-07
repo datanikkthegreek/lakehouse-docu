@@ -3,5 +3,7 @@ lakehouse.datasources.swapi
 
 .. automodule:: lakehouse.datasources.swapi
     :members:
+    :special-members:
+    :private-members:
     :undoc-members:
     :show-inheritance:

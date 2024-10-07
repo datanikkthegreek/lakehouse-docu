@@ -3,5 +3,7 @@ lakehouse.silver
 
 .. automodule:: lakehouse.silver
     :members:
+    :special-members:
+    :private-members:
     :undoc-members:
     :show-inheritance:

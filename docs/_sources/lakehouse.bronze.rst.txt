@@ -3,5 +3,7 @@ lakehouse.bronze
 
 .. automodule:: lakehouse.bronze
     :members:
+    :special-members:
+    :private-members:
     :undoc-members:
     :show-inheritance:

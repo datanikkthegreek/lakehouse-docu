@@ -1,9 +1,6 @@
 Lakehouse API Reference
 =======================
 
-.. automodule:: lakehouse.etl
-    :members:
-
 .. toctree::
    :maxdepth: 3
    :caption: Contents:
