@@ -3,7 +3,7 @@ lakehouse.utils.settings
 
 .. automodule:: lakehouse.utils.settings
     :members:
-    :special-members:
+    :special-members: __init__
     :private-members:
     :undoc-members:
     :show-inheritance:

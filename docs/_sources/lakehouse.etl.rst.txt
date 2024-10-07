@@ -3,7 +3,7 @@ lakehouse.etl
 
 .. automodule:: lakehouse.etl
     :members:
-    :special-members:
+    :special-members: __init__
     :private-members:
     :undoc-members:
     :show-inheritance:
