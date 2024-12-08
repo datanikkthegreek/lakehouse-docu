@@ -48,6 +48,10 @@
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.etl.html">lakehouse.etl</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">lakehouse.bronze</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.Bronze"><code class="docutils literal notranslate"><span class="pre">Bronze</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.Bronze.spark"><code class="docutils literal notranslate"><span class="pre">Bronze.spark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.Bronze.options"><code class="docutils literal notranslate"><span class="pre">Bronze.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.Bronze.catalog"><code class="docutils literal notranslate"><span class="pre">Bronze.catalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.Bronze.target_schema"><code class="docutils literal notranslate"><span class="pre">Bronze.target_schema</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.Bronze.__init__"><code class="docutils literal notranslate"><span class="pre">Bronze.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.Bronze._abc_impl"><code class="docutils literal notranslate"><span class="pre">Bronze._abc_impl</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.Bronze._transform"><code class="docutils literal notranslate"><span class="pre">Bronze._transform()</span></code></a></li>
@@ -55,22 +59,38 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend"><code class="docutils literal notranslate"><span class="pre">BronzeAppend</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend.spark"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.spark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend.options"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend.catalog"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.catalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend.target_schema"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.target_schema</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend._abc_impl"><code class="docutils literal notranslate"><span class="pre">BronzeAppend._abc_impl</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeAppend.write"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge"><code class="docutils literal notranslate"><span class="pre">BronzeMerge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge.spark"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.spark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge.options"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge.catalog"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.catalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge.target_schema"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.target_schema</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge._abc_impl"><code class="docutils literal notranslate"><span class="pre">BronzeMerge._abc_impl</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge.get_delta_merge_builder"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.get_delta_merge_builder()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeMerge.write"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite.spark"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.spark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite.options"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite.catalog"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.catalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite.target_schema"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.target_schema</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite._abc_impl"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite._abc_impl</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeOverwrite.write"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere.spark"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.spark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere.options"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere.catalog"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.catalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere.target_schema"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.target_schema</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere._abc_impl"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere._abc_impl</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere.get_replace_condition"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.get_replace_condition()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.bronze.BronzeReplaceWhere.write"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.write()</span></code></a></li>
@@ -116,6 +136,54 @@
 <dt class="sig sig-object py" id="lakehouse.bronze.Bronze">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">Bronze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.Bronze" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL" title="lakehouse.etl.ETL"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETL</span></code></a></p>
+<p>A generic class building a framework how to process data from the source to the Bronze layer in a Medallion architecture.</p>
+<p>Use the method execute_all to execute a list of tables which
+executes per table a load, transform, private transform and write operation per table.</p>
+<p>Overwrite functions as required</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.Bronze.spark">
+<span class="sig-name descname"><span class="pre">spark</span></span><a class="headerlink" href="#lakehouse.bronze.Bronze.spark" title="Link to this definition"></a></dt>
+<dd><p>Spark Session as provided to process the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SparkSession</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.Bronze.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#lakehouse.bronze.Bronze.options" title="Link to this definition"></a></dt>
+<dd><p>Any options provided into the class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.Bronze.catalog">
+<span class="sig-name descname"><span class="pre">catalog</span></span><a class="headerlink" href="#lakehouse.bronze.Bronze.catalog" title="Link to this definition"></a></dt>
+<dd><p>Name of the catalog</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.Bronze.target_schema">
+<span class="sig-name descname"><span class="pre">target_schema</span></span><a class="headerlink" href="#lakehouse.bronze.Bronze.target_schema" title="Link to this definition"></a></dt>
+<dd><p>Name of the target_schema</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="lakehouse.bronze.Bronze.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.Bronze.__init__" title="Link to this definition"></a></dt>
@@ -178,6 +246,55 @@
 <dt class="sig sig-object py" id="lakehouse.bronze.BronzeAppend">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">BronzeAppend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.BronzeAppend" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#lakehouse.bronze.Bronze" title="lakehouse.bronze.Bronze"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bronze</span></code></a></p>
+<p>A generic class building a framework how to process data from the source to the Bronze layer in a Medallion architecture.</p>
+<p>Use the method execute_all to execute a list of tables which
+executes per table a load, transform, private transform and write operation per table.</p>
+<p>Overwrite functions as required.</p>
+<p>Writes data using an append.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeAppend.spark">
+<span class="sig-name descname"><span class="pre">spark</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeAppend.spark" title="Link to this definition"></a></dt>
+<dd><p>Spark Session as provided to process the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SparkSession</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeAppend.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeAppend.options" title="Link to this definition"></a></dt>
+<dd><p>Any options provided into the class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeAppend.catalog">
+<span class="sig-name descname"><span class="pre">catalog</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeAppend.catalog" title="Link to this definition"></a></dt>
+<dd><p>Name of the catalog</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeAppend.target_schema">
+<span class="sig-name descname"><span class="pre">target_schema</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeAppend.target_schema" title="Link to this definition"></a></dt>
+<dd><p>Name of the target_schema</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="lakehouse.bronze.BronzeAppend._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#lakehouse.bronze.BronzeAppend._abc_impl" title="Link to this definition"></a></dt>
@@ -203,6 +320,55 @@
 <dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">BronzeMerge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.BronzeMerge" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#lakehouse.bronze.Bronze" title="lakehouse.bronze.Bronze"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bronze</span></code></a></p>
+<p>A generic class building a framework how to process data from the source to the Bronze layer in a Medallion architecture.</p>
+<p>Use the method execute_all to execute a list of tables which
+executes per table a load, transform, private transform and write operation per table.</p>
+<p>Overwrite functions as required.</p>
+<p>Writes data using a merge.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge.spark">
+<span class="sig-name descname"><span class="pre">spark</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeMerge.spark" title="Link to this definition"></a></dt>
+<dd><p>Spark Session as provided to process the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SparkSession</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeMerge.options" title="Link to this definition"></a></dt>
+<dd><p>Any options provided into the class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge.catalog">
+<span class="sig-name descname"><span class="pre">catalog</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeMerge.catalog" title="Link to this definition"></a></dt>
+<dd><p>Name of the catalog</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge.target_schema">
+<span class="sig-name descname"><span class="pre">target_schema</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeMerge.target_schema" title="Link to this definition"></a></dt>
+<dd><p>Name of the target_schema</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="lakehouse.bronze.BronzeMerge._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#lakehouse.bronze.BronzeMerge._abc_impl" title="Link to this definition"></a></dt>
@@ -251,6 +417,55 @@
 <dt class="sig sig-object py" id="lakehouse.bronze.BronzeOverwrite">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">BronzeOverwrite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.BronzeOverwrite" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#lakehouse.bronze.Bronze" title="lakehouse.bronze.Bronze"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bronze</span></code></a></p>
+<p>A generic class building a framework how to process data from the source to the Bronze layer in a Medallion architecture.</p>
+<p>Use the method execute_all to execute a list of tables which
+executes per table a load, transform, private transform and write operation per table.</p>
+<p>Overwrite functions as required.</p>
+<p>Writes data using an overwrite.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeOverwrite.spark">
+<span class="sig-name descname"><span class="pre">spark</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeOverwrite.spark" title="Link to this definition"></a></dt>
+<dd><p>Spark Session as provided to process the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SparkSession</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeOverwrite.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeOverwrite.options" title="Link to this definition"></a></dt>
+<dd><p>Any options provided into the class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeOverwrite.catalog">
+<span class="sig-name descname"><span class="pre">catalog</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeOverwrite.catalog" title="Link to this definition"></a></dt>
+<dd><p>Name of the catalog</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeOverwrite.target_schema">
+<span class="sig-name descname"><span class="pre">target_schema</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeOverwrite.target_schema" title="Link to this definition"></a></dt>
+<dd><p>Name of the target_schema</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="lakehouse.bronze.BronzeOverwrite._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#lakehouse.bronze.BronzeOverwrite._abc_impl" title="Link to this definition"></a></dt>
@@ -276,6 +491,55 @@
 <dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.bronze.</span></span><span class="sig-name descname"><span class="pre">BronzeReplaceWhere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#lakehouse.bronze.Bronze" title="lakehouse.bronze.Bronze"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bronze</span></code></a></p>
+<p>A generic class building a framework how to process data from the source to the Bronze layer in a Medallion architecture.</p>
+<p>Use the method execute_all to execute a list of tables which
+executes per table a load, transform, private transform and write operation per table.</p>
+<p>Overwrite functions as required.</p>
+<p>Writes data using a replace where overwrite.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere.spark">
+<span class="sig-name descname"><span class="pre">spark</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere.spark" title="Link to this definition"></a></dt>
+<dd><p>Spark Session as provided to process the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SparkSession</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere.options" title="Link to this definition"></a></dt>
+<dd><p>Any options provided into the class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere.catalog">
+<span class="sig-name descname"><span class="pre">catalog</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere.catalog" title="Link to this definition"></a></dt>
+<dd><p>Name of the catalog</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere.target_schema">
+<span class="sig-name descname"><span class="pre">target_schema</span></span><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere.target_schema" title="Link to this definition"></a></dt>
+<dd><p>Name of the target_schema</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="lakehouse.bronze.BronzeReplaceWhere._abc_impl">
 <span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#lakehouse.bronze.BronzeReplaceWhere._abc_impl" title="Link to this definition"></a></dt>

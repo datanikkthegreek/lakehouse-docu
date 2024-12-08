@@ -85,6 +85,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lakehouse.etl.html">lakehouse.etl</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL"><code class="docutils literal notranslate"><span class="pre">ETL</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL.spark"><code class="docutils literal notranslate"><span class="pre">ETL.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL.options"><code class="docutils literal notranslate"><span class="pre">ETL.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL.catalog"><code class="docutils literal notranslate"><span class="pre">ETL.catalog</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL.__init__"><code class="docutils literal notranslate"><span class="pre">ETL.__init__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL._abc_impl"><code class="docutils literal notranslate"><span class="pre">ETL._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.etl.html#lakehouse.etl.ETL._transform"><code class="docutils literal notranslate"><span class="pre">ETL._transform()</span></code></a></li>
@@ -100,6 +103,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lakehouse.bronze.html">lakehouse.bronze</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.Bronze"><code class="docutils literal notranslate"><span class="pre">Bronze</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.Bronze.spark"><code class="docutils literal notranslate"><span class="pre">Bronze.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.Bronze.options"><code class="docutils literal notranslate"><span class="pre">Bronze.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.Bronze.catalog"><code class="docutils literal notranslate"><span class="pre">Bronze.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.Bronze.target_schema"><code class="docutils literal notranslate"><span class="pre">Bronze.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.Bronze.__init__"><code class="docutils literal notranslate"><span class="pre">Bronze.__init__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.Bronze._abc_impl"><code class="docutils literal notranslate"><span class="pre">Bronze._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.Bronze._transform"><code class="docutils literal notranslate"><span class="pre">Bronze._transform()</span></code></a></li>
@@ -107,22 +114,38 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeAppend"><code class="docutils literal notranslate"><span class="pre">BronzeAppend</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeAppend.spark"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeAppend.options"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeAppend.catalog"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeAppend.target_schema"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeAppend._abc_impl"><code class="docutils literal notranslate"><span class="pre">BronzeAppend._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeAppend.write"><code class="docutils literal notranslate"><span class="pre">BronzeAppend.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeMerge"><code class="docutils literal notranslate"><span class="pre">BronzeMerge</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeMerge.spark"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeMerge.options"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeMerge.catalog"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeMerge.target_schema"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeMerge._abc_impl"><code class="docutils literal notranslate"><span class="pre">BronzeMerge._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeMerge.get_delta_merge_builder"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.get_delta_merge_builder()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeMerge.write"><code class="docutils literal notranslate"><span class="pre">BronzeMerge.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeOverwrite"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeOverwrite.spark"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeOverwrite.options"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeOverwrite.catalog"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeOverwrite.target_schema"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeOverwrite._abc_impl"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeOverwrite.write"><code class="docutils literal notranslate"><span class="pre">BronzeOverwrite.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeReplaceWhere"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeReplaceWhere.spark"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeReplaceWhere.options"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeReplaceWhere.catalog"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeReplaceWhere.target_schema"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeReplaceWhere._abc_impl"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeReplaceWhere.get_replace_condition"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.get_replace_condition()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.bronze.html#lakehouse.bronze.BronzeReplaceWhere.write"><code class="docutils literal notranslate"><span class="pre">BronzeReplaceWhere.write()</span></code></a></li>
@@ -132,6 +155,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lakehouse.silver.html">lakehouse.silver</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver"><code class="docutils literal notranslate"><span class="pre">Silver</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver.spark"><code class="docutils literal notranslate"><span class="pre">Silver.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver.options"><code class="docutils literal notranslate"><span class="pre">Silver.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver.catalog"><code class="docutils literal notranslate"><span class="pre">Silver.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver.source_schema"><code class="docutils literal notranslate"><span class="pre">Silver.source_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver.target_schema"><code class="docutils literal notranslate"><span class="pre">Silver.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver.__init__"><code class="docutils literal notranslate"><span class="pre">Silver.__init__()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver._abc_impl"><code class="docutils literal notranslate"><span class="pre">Silver._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.Silver._transform"><code class="docutils literal notranslate"><span class="pre">Silver._transform()</span></code></a></li>
@@ -141,22 +169,42 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverAppend"><code class="docutils literal notranslate"><span class="pre">SilverAppend</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverAppend.spark"><code class="docutils literal notranslate"><span class="pre">SilverAppend.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverAppend.options"><code class="docutils literal notranslate"><span class="pre">SilverAppend.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverAppend.catalog"><code class="docutils literal notranslate"><span class="pre">SilverAppend.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverAppend.source_schema"><code class="docutils literal notranslate"><span class="pre">SilverAppend.source_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverAppend.target_schema"><code class="docutils literal notranslate"><span class="pre">SilverAppend.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverAppend._abc_impl"><code class="docutils literal notranslate"><span class="pre">SilverAppend._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverAppend.write"><code class="docutils literal notranslate"><span class="pre">SilverAppend.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge"><code class="docutils literal notranslate"><span class="pre">SilverMerge</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge.spark"><code class="docutils literal notranslate"><span class="pre">SilverMerge.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge.options"><code class="docutils literal notranslate"><span class="pre">SilverMerge.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge.catalog"><code class="docutils literal notranslate"><span class="pre">SilverMerge.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge.source_schema"><code class="docutils literal notranslate"><span class="pre">SilverMerge.source_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge.target_schema"><code class="docutils literal notranslate"><span class="pre">SilverMerge.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge._abc_impl"><code class="docutils literal notranslate"><span class="pre">SilverMerge._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge.get_delta_merge_builder"><code class="docutils literal notranslate"><span class="pre">SilverMerge.get_delta_merge_builder()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverMerge.write"><code class="docutils literal notranslate"><span class="pre">SilverMerge.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverOverwrite"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverOverwrite.spark"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverOverwrite.options"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverOverwrite.catalog"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverOverwrite.source_schema"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite.source_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverOverwrite.target_schema"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverOverwrite._abc_impl"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverOverwrite.write"><code class="docutils literal notranslate"><span class="pre">SilverOverwrite.write()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere.spark"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.spark</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere.options"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.options</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere.catalog"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.catalog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere.source_schema"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.source_schema</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere.target_schema"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.target_schema</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere._abc_impl"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere._abc_impl</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere.get_replace_condition"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.get_replace_condition()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="lakehouse.silver.html#lakehouse.silver.SilverReplaceWhere.write"><code class="docutils literal notranslate"><span class="pre">SilverReplaceWhere.write()</span></code></a></li>
@@ -174,7 +222,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lakehouse.utils.html">lakehouse.utils</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.utils.settings.html">lakehouse.utils.settings</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="lakehouse.utils.settings.html#lakehouse.utils.settings.get_spark_session"><code class="docutils literal notranslate"><span class="pre">get_spark_session()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.utils.settings.html#lakehouse.utils.settings.get_databricks_connect_session"><code class="docutils literal notranslate"><span class="pre">get_databricks_connect_session()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="lakehouse.utils.settings.html#lakehouse.utils.settings.get_spark_opensource_session"><code class="docutils literal notranslate"><span class="pre">get_spark_opensource_session()</span></code></a></li>
 </ul>
 </li>
 </ul>
