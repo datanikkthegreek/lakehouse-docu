@@ -5,6 +5,14 @@ Lakehouse-NS gives you a simple framework to implement your lakehouse based on t
 - Currently, it supports Delta Lake as lakehouse format
 - The framework will also be extended step by step with more baseline logic
 
+"Homepage" = "https://github.com/datanikkthegreek/lakehouse-docu"
+"API Referance" = "https://datanikkthegreek.github.io/lakehouse-docu/"
+"Samples" = "https://github.com/datanikkthegreek/lakehouse-docu/tree/main/samples"
+"Source" = "https://github.com/datanikkthegreek/lakehouse"
+"Issues" = "https://github.com/datanikkthegreek/lakehouse-docu/issues"
+"Project Planning" = "https://github.com/users/datanikkthegreek/projects/1/views/1"
+"Get in touch" = "https://www.linkedin.com/in/dr-nikolaos-servos-nikk-the-greek-a29137b3/"
+
 # 1. Set-Up
 
 Requires to have installed one of the following:
