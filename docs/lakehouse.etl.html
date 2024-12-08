@@ -47,6 +47,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="lakehouse.html">lakehouse</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">lakehouse.etl</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lakehouse.etl.ETL"><code class="docutils literal notranslate"><span class="pre">ETL</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.spark"><code class="docutils literal notranslate"><span class="pre">ETL.spark</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.options"><code class="docutils literal notranslate"><span class="pre">ETL.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.catalog"><code class="docutils literal notranslate"><span class="pre">ETL.catalog</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.__init__"><code class="docutils literal notranslate"><span class="pre">ETL.__init__()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL._abc_impl"><code class="docutils literal notranslate"><span class="pre">ETL._abc_impl</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL._transform"><code class="docutils literal notranslate"><span class="pre">ETL._transform()</span></code></a></li>
@@ -99,6 +102,43 @@
 <dt class="sig sig-object py" id="lakehouse.etl.ETL">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.etl.</span></span><span class="sig-name descname"><span class="pre">ETL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.etl.ETL" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>A generic class building a framework how to process data from one layer to the other in a Medallion architecture.</p>
+<p>Use the method execute_all to execute a list of tables which
+executes per table a load, transform, private transform and write operation per table.</p>
+<p>Overwrite functions as required</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.etl.ETL.spark">
+<span class="sig-name descname"><span class="pre">spark</span></span><a class="headerlink" href="#lakehouse.etl.ETL.spark" title="Link to this definition"></a></dt>
+<dd><p>Spark Session as provided to process the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SparkSession</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.etl.ETL.options">
+<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#lakehouse.etl.ETL.options" title="Link to this definition"></a></dt>
+<dd><p>Any options provided into the class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.etl.ETL.catalog">
+<span class="sig-name descname"><span class="pre">catalog</span></span><a class="headerlink" href="#lakehouse.etl.ETL.catalog" title="Link to this definition"></a></dt>
+<dd><p>Name of the catalog</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="lakehouse.etl.ETL.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.__init__" title="Link to this definition"></a></dt>

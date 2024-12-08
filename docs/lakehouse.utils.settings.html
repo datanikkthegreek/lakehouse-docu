@@ -50,7 +50,8 @@
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.datasources.html">lakehouse.datasources</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="lakehouse.utils.html">lakehouse.utils</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">lakehouse.utils.settings</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.utils.settings.get_spark_session"><code class="docutils literal notranslate"><span class="pre">get_spark_session()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.utils.settings.get_databricks_connect_session"><code class="docutils literal notranslate"><span class="pre">get_databricks_connect_session()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.utils.settings.get_spark_opensource_session"><code class="docutils literal notranslate"><span class="pre">get_spark_opensource_session()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -88,8 +89,8 @@
   <section id="module-lakehouse.utils.settings">
 <span id="lakehouse-utils-settings"></span><h1>lakehouse.utils.settings<a class="headerlink" href="#module-lakehouse.utils.settings" title="Link to this heading"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="lakehouse.utils.settings.get_spark_session">
-<span class="sig-prename descclassname"><span class="pre">lakehouse.utils.settings.</span></span><span class="sig-name descname"><span class="pre">get_spark_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SparkSession</span></span></span><a class="headerlink" href="#lakehouse.utils.settings.get_spark_session" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="lakehouse.utils.settings.get_databricks_connect_session">
+<span class="sig-prename descclassname"><span class="pre">lakehouse.utils.settings.</span></span><span class="sig-name descname"><span class="pre">get_databricks_connect_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SparkSession</span></span></span><a class="headerlink" href="#lakehouse.utils.settings.get_databricks_connect_session" title="Link to this definition"></a></dt>
 <dd><p>Creates a Databricks Connect Spark Session.</p>
 <blockquote>
 <div><p>Requires DATABRICKS_HOST, DATABRICKS_TOKEN and DATABRICKS_CLUSTER_ID as env variables.</p>
@@ -97,6 +98,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Databricks Connect Spark Session</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="lakehouse.utils.settings.get_spark_opensource_session">
+<span class="sig-prename descclassname"><span class="pre">lakehouse.utils.settings.</span></span><span class="sig-name descname"><span class="pre">get_spark_opensource_session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SparkSession</span></span></span><a class="headerlink" href="#lakehouse.utils.settings.get_spark_opensource_session" title="Link to this definition"></a></dt>
+<dd><p>Creates a Spark Open Source session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spark Open Source Session</p>
 </dd>
 </dl>
 </dd></dl>
