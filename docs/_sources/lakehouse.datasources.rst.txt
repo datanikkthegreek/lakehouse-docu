@@ -1,0 +1,8 @@
+lakehouse.datasources
+=======================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   lakehouse.datasources.swapi
