@@ -48,24 +48,23 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">lakehouse.etl</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#lakehouse.etl.ETL"><code class="docutils literal notranslate"><span class="pre">ETL</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.spark"><code class="docutils literal notranslate"><span class="pre">ETL.spark</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.options"><code class="docutils literal notranslate"><span class="pre">ETL.options</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.catalog"><code class="docutils literal notranslate"><span class="pre">ETL.catalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.source_schema"><code class="docutils literal notranslate"><span class="pre">ETL.source_schema</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.target_schema"><code class="docutils literal notranslate"><span class="pre">ETL.target_schema</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.data"><code class="docutils literal notranslate"><span class="pre">ETL.data</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.__init__"><code class="docutils literal notranslate"><span class="pre">ETL.__init__()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL._abc_impl"><code class="docutils literal notranslate"><span class="pre">ETL._abc_impl</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL._transform"><code class="docutils literal notranslate"><span class="pre">ETL._transform()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.debug_one"><code class="docutils literal notranslate"><span class="pre">ETL.debug_one()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.execute_all"><code class="docutils literal notranslate"><span class="pre">ETL.execute_all()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.execute_one"><code class="docutils literal notranslate"><span class="pre">ETL.execute_one()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.load"><code class="docutils literal notranslate"><span class="pre">ETL.load()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.transform"><code class="docutils literal notranslate"><span class="pre">ETL.transform()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.write"><code class="docutils literal notranslate"><span class="pre">ETL.write()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lakehouse.etl.ETL.execute"><code class="docutils literal notranslate"><span class="pre">ETL.execute()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.bronze.html">lakehouse.bronze</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.silver.html">lakehouse.silver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lakehouse.datasources.html">lakehouse.datasources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.gold.html">lakehouse.gold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.etlloader.html">lakehouse.etlloader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.etltransformer.html">lakehouse.etltransformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.etlwriter.html">lakehouse.etlwriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lakehouse.interface.html">lakehouse.interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lakehouse.utils.html">lakehouse.utils</a></li>
 </ul>
 </li>
@@ -101,11 +100,19 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="lakehouse.etl.ETL">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">lakehouse.etl.</span></span><span class="sig-name descname"><span class="pre">ETL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#lakehouse.etl.ETL" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="lakehouse.etlloader.html#lakehouse.etlloader.ETLLoader" title="lakehouse.etlloader.ETLLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETLLoader</span></code></a>, <a class="reference internal" href="lakehouse.etltransformer.html#lakehouse.etltransformer.ETLTransformer" title="lakehouse.etltransformer.ETLTransformer"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETLTransformer</span></code></a>, <a class="reference internal" href="lakehouse.etlwriter.html#lakehouse.etlwriter.ETLWriter" title="lakehouse.etlwriter.ETLWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">ETLWriter</span></code></a>, <a class="reference internal" href="lakehouse.interface.html#lakehouse.interface.Interface" title="lakehouse.interface.Interface"><code class="xref py py-class docutils literal notranslate"><span class="pre">Interface</span></code></a></p>
 <p>A generic class building a framework how to process data from one layer to the other in a Medallion architecture.</p>
-<p>Use the method execute_all to execute a list of tables which
-executes per table a load, transform, private transform and write operation per table.</p>
-<p>Overwrite functions as required</p>
+<p>Use the functions load(), transform() and write() to specify configs. Use execute() to execute the defined steps.</p>
+<dl class="simple">
+<dt>Overwrite functions as required:</dt><dd><p>custom_load(self, table: str) -&gt; DataFrame: Function to customize the way or the source data is loaded. required, if load(mode=”custom”) else ignored.
+custom_filter(self, sdf: DataFrame, table: str) -&gt; DataFrame: Function to filter the loaded dataframe and making use of predicate pushdown. required, if load(filter=”custom”) else ignored.
+custom_transform(self, sdf: DataFrame, table: str) -&gt; DataFrame: Function to be optionally overwritten to add custom transformations, only executed if transform() is defined
+custom_filter(self, sdf: DataFrame, table: str) -&gt; DataFrame: Can be overwritten to add default transformations executed after the the custom transformations. Defaults create a timestamp column with the current timestamp of transformations. Only executed if transform(ignore_defaults=False)
+get_replace_condition(self, sdf: DataFrame, table: str) -&gt; str: Allows you to define the filter used for the replace where overwrite operation. required if write(mode=”replace”).
+get_delta_merge_builder(self, sdf: DataFrame, delta_table: DeltaTable) -&gt; DeltaMergeBuilder: Allows you to define the merge builder for the merge write into delta. required if write(mode=”merge”)
+custom_write(self, sdf: DataFrame, table: str) -&gt; None: Allows to define a custom write operation. required if write(mode=”custom”)</p>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="lakehouse.etl.ETL.spark">
 <span class="sig-name descname"><span class="pre">spark</span></span><a class="headerlink" href="#lakehouse.etl.ETL.spark" title="Link to this definition"></a></dt>
@@ -118,9 +125,9 @@ executes per table a load, transform, private transform and write operation per 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL.options">
-<span class="sig-name descname"><span class="pre">options</span></span><a class="headerlink" href="#lakehouse.etl.ETL.options" title="Link to this definition"></a></dt>
-<dd><p>Any options provided into the class</p>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">\*\*options</span></span></dt>
+<dd><p>Kwargs, Any options provided into the class</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Dict[str, Any]</p>
@@ -131,7 +138,7 @@ executes per table a load, transform, private transform and write operation per 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="lakehouse.etl.ETL.catalog">
 <span class="sig-name descname"><span class="pre">catalog</span></span><a class="headerlink" href="#lakehouse.etl.ETL.catalog" title="Link to this definition"></a></dt>
-<dd><p>Name of the catalog</p>
+<dd><p>Name of the created catalog recognized by spark e.g. from Hive Metastore or Unity Catalogue</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
@@ -139,136 +146,66 @@ executes per table a load, transform, private transform and write operation per 
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.__init__" title="Link to this definition"></a></dt>
-<dd><p>Initializes the ETL class with user-provided options.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.etl.ETL.source_schema">
+<span class="sig-name descname"><span class="pre">source_schema</span></span><a class="headerlink" href="#lakehouse.etl.ETL.source_schema" title="Link to this definition"></a></dt>
+<dd><p>Name of the source_schema</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>spark</strong> (<em>SparkSession</em>) – existing Spark Session</p></li>
-<li><p><strong>**catalog</strong> (<em>str</em>) – created catalog recognized by spark e.g. from Hive Metastore or Unity Catalogue</p></li>
-</ul>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL._abc_impl">
-<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#lakehouse.etl.ETL._abc_impl" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL._transform">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL._transform" title="Link to this definition"></a></dt>
-<dd><p>Abstract function to add internal transformations to PySpark DataFrame like meta columns</p>
+<dt class="sig sig-object py" id="lakehouse.etl.ETL.target_schema">
+<span class="sig-name descname"><span class="pre">target_schema</span></span><a class="headerlink" href="#lakehouse.etl.ETL.target_schema" title="Link to this definition"></a></dt>
+<dd><p>Name of the target_schema</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
-<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
-</ul>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>transformed DataFrame with internal transformations</p>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="lakehouse.etl.ETL.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#lakehouse.etl.ETL.data" title="Link to this definition"></a></dt>
+<dd><p>Intermediate DataFrame per table based on the specified options before execute()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict[str, DataFrame]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL.debug_one">
-<span class="sig-name descname"><span class="pre">debug_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.debug_one" title="Link to this definition"></a></dt>
-<dd><p>Function used to debug the steps loading and transforming of the data by getting intermediate dataframes</p>
+<dt class="sig sig-object py" id="lakehouse.etl.ETL.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spark</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SparkSession</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initializes the Loader class with user-provided options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spark</strong> (<em>SparkSession</em>) – existing Spark Session</p></li>
+<li><p><strong>**options</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – Kwargs, Any options provided into the class</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="simple">
-<dt>Use n as follows to get the Spark DataFrame after each function</dt><dd><ol class="arabic simple">
-<li><p>load()</p></li>
-<li><p>transform()</p></li>
-<li><p>_transform()</p></li>
-</ol>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
-<li><p><strong>n</strong> (<em>int</em>) – number associated to function</p></li>
-</ul>
+<dt>Kwargs options:</dt><dd><p>catalog (str): Name of the created catalog recognized by spark e.g. from Hive Metastore or Unity Catalogue, required
+source_schema (str): Name of the source_schema, required
+target_schema (str): Name of the target_schema, required</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL.execute_all">
-<span class="sig-name descname"><span class="pre">execute_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.execute_all" title="Link to this definition"></a></dt>
-<dd><p>Executes the etl process for the specified tables executing the steps in execute_one() function</p>
+<dt class="sig sig-object py" id="lakehouse.etl.ETL.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">tables</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.execute" title="Link to this definition"></a></dt>
+<dd><p>Executes the elt process via _execute_one() for one or multiple tables as specified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>tables</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of table names</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL.execute_one">
-<span class="sig-name descname"><span class="pre">execute_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.execute_one" title="Link to this definition"></a></dt>
-<dd><p>Executes the etl process for the specified table loading ,transforming and writing the data.</p>
-<dl class="simple">
-<dt>Executes overwrite functions in the following order:</dt><dd><ol class="arabic simple">
-<li><p>load()</p></li>
-<li><p>transform()</p></li>
-<li><p>_transform()</p></li>
-<li><p>write()</p></li>
-</ol>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>table</strong> (<em>str</em>) – name of the table</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL.load">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.load" title="Link to this definition"></a></dt>
-<dd><p>Abstract function to load data and return a PySpark DataFrame</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>table</strong> (<em>str</em>) – name of the table</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>loaded data as DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL.transform">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.transform" title="Link to this definition"></a></dt>
-<dd><p>Abstract function to transform a PySpark DataFrame</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
-<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>transformed DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="lakehouse.etl.ETL.write">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sdf</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#lakehouse.etl.ETL.write" title="Link to this definition"></a></dt>
-<dd><p>Abstract function to write PySpark DataFrame</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>sdf</strong> (<em>DataFrame</em>) – DataFrame</p></li>
-<li><p><strong>table</strong> (<em>str</em>) – name of the table</p></li>
-</ul>
+<dd class="field-odd"><p><strong>*tables</strong> – List of tables as args</p>
 </dd>
 </dl>
 </dd></dl>
