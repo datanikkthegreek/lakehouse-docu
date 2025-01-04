@@ -8,7 +8,7 @@ Lakehouse-NS gives you a simple framework to implement your lakehouse based on t
 Some import links:
 
 - "Homepage" = "https://github.com/datanikkthegreek/lakehouse-docu"
-- "API Referance" = "https://datanikkthegreek.github.io/lakehouse-docu/"
+- "API Referance" = "https://nikkthegreek.codeberg.page/"
 - "Samples" = "https://github.com/datanikkthegreek/lakehouse-docu/tree/main/samples"
 - "Source" = "https://github.com/datanikkthegreek/lakehouse"
 - "Issues" = "https://github.com/datanikkthegreek/lakehouse-docu/issues"
