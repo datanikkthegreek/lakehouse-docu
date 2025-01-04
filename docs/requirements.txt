@@ -1,0 +1,10 @@
+#Spark
+pyspark==4.0.0.dev1
+delta-spark==4.0.0rc1
+#Others
+pandas==2.2.1
+numpy==1.26.4
+pyarrow==17.0.0
+grpcio==1.67.0
+grpcio-status==1.67.0
+requests==2.32.3
